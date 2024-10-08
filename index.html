@@ -3,54 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Professional Portfolio of Hardik Sikri, IT Analyst, and Customer Service Expert.">
+    <meta property="og:title" content="Hardik Sikri - Professional Portfolio">
+    <meta property="og:description" content="Explore the professional skills, experience, and projects of Hardik Sikri.">
     <title>Hardik Sikri - Professional Portfolio</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f9f9f9;
             color: #333;
+            scroll-behavior: smooth;
         }
         header {
-            background-color: #0073e6;
-            color: white;
+            background-color: #0056b3;
+            color: #fff;
             padding: 20px;
             text-align: center;
         }
         header h1 {
             margin: 0;
+            font-size: 2.5rem;
+        }
+        nav {
+            text-align: center;
+            padding: 10px;
+            background-color: #007bff;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
         }
         section {
-            margin: 20px;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
         }
         h2 {
-            color: #0073e6;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        ul li {
-            margin-bottom: 10px;
+            color: #0056b3;
         }
         footer {
             text-align: center;
-            padding: 10px;
+            padding: 15px;
             background-color: #333;
-            color: white;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+            color: #fff;
+            font-size: 0.9rem;
         }
-        a {
-            color: #0073e6;
-            text-decoration: none;
+        a:hover {
+            color: #ffdd00;
         }
     </style>
 </head>
@@ -61,68 +71,52 @@
         <p>IT Analyst | Customer Service Professional</p>
     </header>
 
-    <section>
-        <h2>About Me</h2>
-        <p>Dedicated and adaptable professional with a proactive attitude and a strong work ethic. Skilled in system architecture, customer service, and technical problem-solving. Eager to contribute to dynamic teams and support organizational goals with effective communication and collaboration skills.</p>
-    </section>
+    <nav>
+        <a href="#about">About Me</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
-    <section>
-        <h2>Experience</h2>
-        <ul>
-            <li><strong>IT Analyst Intern</strong> - Canada Revenue Agency (09/2023 to 04/2024)
-                <ul>
-                    <li>Troubleshot and resolved problems with systems and programs.</li>
-                    <li>Provided support to end-users in troubleshooting application issues.</li>
-                    <li>Collaborated with team members to deliver projects within deadlines.</li>
-                </ul>
-            </li>
-            <li><strong>Technical Sales Representative</strong> - S&P Data (08/2021 to 08/2023)
-                <ul>
-                    <li>Assessed customer needs and explained complex technical information.</li>
-                    <li>Resolved customer complaints efficiently.</li>
-                    <li>Identified potential customers and established relationships.</li>
-                </ul>
-            </li>
-            <li><strong>Food Service Supervisor</strong> - A&W (10/2020 to 08/2021)
-                <ul>
-                    <li>Monitored food safety and handling standards.</li>
-                    <li>Trained workers in preparation, handling, and cleaning tasks.</li>
-                </ul>
-            </li>
-        </ul>
-    </section>
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Proactive professional with experience in IT support and customer service. Skilled in system architecture, technical troubleshooting, and effective communication.</p>
+        </section>
 
-    <section>
-        <h2>Skills</h2>
-        <ul>
-            <li>Linux, Python, VMware</li>
-            <li>System Architecture</li>
-            <li>Analytical Thinking</li>
-            <li>Customer Service</li>
-            <li>Excellent Communication</li>
-            <li>Teamwork and Collaboration</li>
-        </ul>
-    </section>
+        <section id="experience">
+            <h2>Experience</h2>
+            <ul>
+                <li><strong>IT Analyst Intern</strong> - Canada Revenue Agency (2023 - 2024)</li>
+                <li><strong>Technical Sales Representative</strong> - S&P Data (2021 - 2023)</li>
+                <li><strong>Food Service Supervisor</strong> - A&W (2020 - 2021)</li>
+            </ul>
+        </section>
 
-    <section>
-        <h2>Education</h2>
-        <ul>
-            <li><strong>Bachelor of Applied Information Systems Technology - Network Management</strong> - Northern Alberta Institute of Technology (Present)</li>
-            <li><strong>Computer Systems Technician</strong> - Seneca Polytechnic (Expected 05/2024)</li>
-            <li><strong>Business Administration General</strong> - Bow Valley College (05/2020)</li>
-        </ul>
-    </section>
+        <section id="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>Linux, Python, VMware</li>
+                <li>System Architecture, Analytical Thinking</li>
+                <li>Customer Service, Teamwork, Communication</li>
+            </ul>
+        </section>
 
-    <section>
-        <h2>Certifications</h2>
-        <ul>
-            <li>AWS Cloud Practitioner</li>
-            <li>Linux Essentials</li>
-        </ul>
-    </section>
+        <section id="education">
+            <h2>Education</h2>
+            <p>Bachelor of Applied Information Systems Technology - Network Management, NAIT</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:hsikri1@nait.ca">hsikri1@nait.ca</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/hardiksikri/" target="_blank">LinkedIn Profile</a></p>
+        </section>
+    </div>
 
     <footer>
-        <p>Contact: <a href="mailto:hsikri1@nait.ca">hsikri1@nait.ca</a> | LinkedIn: <a href="https://www.linkedin.com/in/hardiksikri/" target="_blank">LinkedIn Profile</a> | Phone: 403-510-0840</p>
+        <p>© 2024 Hardik Sikri | All Rights Reserved</p>
     </footer>
 
 </body>
