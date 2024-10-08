@@ -15,25 +15,13 @@
         nav a:hover { color: #ffdd00; }
         section { margin: 30px auto; max-width: 800px; text-align: left; }
         h2 { color: #0056b3; border-bottom: 2px solid #0073e6; display: inline-block; padding-bottom: 5px; }
-        #game-container { border: 2px solid #0073e6; width: 100%; max-width: 600px; margin: 20px auto; height: 200px; position: relative; background-color: #f7f7f7; overflow: hidden; }
+        #game-container { display: none; border: 2px solid #0073e6; width: 100%; max-width: 600px; margin: 20px auto; height: 200px; position: relative; background-color: #f7f7f7; overflow: hidden; }
         .dino { width: 40px; height: 40px; background-color: #0073e6; position: absolute; bottom: 0; left: 20px; }
-        .obstacle { width: 20px; height: 30px; background-color: #0056b3; position: absolute; bottom: 0; right: 0; }
-        #contact-form { display: flex; flex-direction: column; max-width: 500px; margin: auto; }
-        #contact-form input, #contact-form textarea, #contact-form button { margin: 10px 0; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
-        #contact-form button { background-color: #0073e6; color: white; border: none; cursor: pointer; }
-
-        /* Loading Screen Styles */
-        #loading-screen { position: fixed; width: 100%; height: 100%; background: white; display: flex; justify-content: center; align-items: center; z-index: 1000; }
-        .loading-dino { width: 50px; height: 50px; background-color: #0073e6; animation: dinoJump 0.5s ease-in-out infinite alternate; }
-        @keyframes dinoJump { 0% { transform: translateY(0); } 100% { transform: translateY(-20px); } }
-        .hidden { display: none; }
+        .obstacle { width: 20px; height: 30px; background-color: #0056b3; position: absolute; bottom: 0; right: -60px; }
+        .start-btn { margin: 20px; padding: 10px 20px; font-size: 1rem; background-color: #0073e6; color: white; border: none; border-radius: 5px; cursor: pointer; display: inline-block; }
     </style>
 </head>
 <body>
-
-    <div id="loading-screen">
-        <div class="loading-dino"></div>
-    </div>
 
     <header>
         <h1>Hardik Sikri</h1>
@@ -68,11 +56,13 @@
 
     <section id="game">
         <h2>T-Rex Runner Game</h2>
+        <p>Click below to start the game!</p>
+        <button class="start-btn" onclick="startGame()">Start Game</button>
         <div id="game-container">
             <div class="dino" id="dino"></div>
             <div class="obstacle" id="obstacle"></div>
         </div>
-        <p>Press the "Space" key to jump over obstacles.</p>
+        <p>Press the "Space" key or tap the button to jump over obstacles.</p>
     </section>
 
     <section id="contact">
@@ -86,17 +76,22 @@
     </section>
 
     <script>
-        window.addEventListener('load', () => {
-            document.getElementById('loading-screen').classList.add('hidden');
-        });
-
         let isJumping = false;
         const dino = document.getElementById('dino');
         const obstacle = document.getElementById('obstacle');
+        const gameContainer = document.getElementById('game-container');
 
         document.addEventListener('keydown', function(event) {
-            if (event.code === 'Space') jump();
+            if (event.code === 'Space' && gameContainer.style.display === 'block') jump();
         });
+
+        function startGame() {
+            document.querySelector('.start-btn').style.display = 'none';
+            gameContainer.style.display = 'block';
+            obstacle.style.right = '-60px';
+            isJumping = false;
+            moveObstacle();
+        }
 
         function jump() {
             if (isJumping) return;
@@ -118,26 +113,23 @@
             }, 20);
         }
 
-        function startGame() {
-            dino.style.bottom = '0px';
-            obstacle.style.right = '-60px';
-
+        function moveObstacle() {
             let moveObstacle = setInterval(() => {
-                if (parseInt(obstacle.style.right) > 580) {
+                let obstacleRight = parseInt(obstacle.style.right);
+                if (obstacleRight > 580) {
                     obstacle.style.right = '-60px';
                 } else {
-                    obstacle.style.right = `${parseInt(obstacle.style.right) + 10}px`;
+                    obstacle.style.right = `${obstacleRight + 10}px`;
                 }
-                
-                if (parseInt(obstacle.style.right) >= 530 && parseInt(obstacle.style.right) <= 590 && parseInt(dino.style.bottom) === 0) {
+
+                if (obstacleRight >= 530 && obstacleRight <= 590 && parseInt(dino.style.bottom) === 0) {
                     clearInterval(moveObstacle);
                     alert('Game Over! Try again.');
-                    startGame();
+                    document.querySelector('.start-btn').style.display = 'inline-block';
+                    gameContainer.style.display = 'none';
                 }
             }, 50);
         }
-
-        startGame();
     </script>
 </body>
 </html>
