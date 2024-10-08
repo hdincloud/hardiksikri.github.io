@@ -7,115 +7,33 @@
     <title>Hardik Sikri - Professional Portfolio</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            color: #333;
-            background-color: #f4f4f4;
-            scroll-behavior: smooth;
-        }
-        header {
-            background: linear-gradient(135deg, #0073e6, #0056b3);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-        }
-        header h1 {
-            font-size: 3rem;
-            margin: 0;
-        }
-        header p {
-            font-size: 1.2rem;
-            margin-top: 10px;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #0056b3;
-            padding: 10px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-        }
-        nav a:hover {
-            color: #ffdd00;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-        section {
-            margin-bottom: 50px;
-        }
-        section h2 {
-            color: #0056b3;
-            font-size: 2rem;
-            border-bottom: 2px solid #0073e6;
-            display: inline-block;
-            padding-bottom: 5px;
-        }
-        #about, #skills {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-        }
-        #about img {
-            width: 150px;
-            border-radius: 50%;
-            margin-right: 20px;
-        }
-        #skills ul {
-            display: flex;
-            flex-wrap: wrap;
-            list-style-type: none;
-            padding: 0;
-        }
-        #skills ul li {
-            background-color: #e0e0e0;
-            margin: 5px;
-            padding: 10px 15px;
-            border-radius: 20px;
-        }
-        #experience ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        #experience li {
-            margin-bottom: 20px;
-        }
-        #experience h3 {
-            margin: 0;
-        }
-        #contact a {
-            color: #0073e6;
-            text-decoration: none;
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 15px 0;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-        @media (max-width: 768px) {
-            #about, #skills {
-                flex-direction: column;
-                text-align: center;
-            }
-            #about img {
-                margin: 0 auto 20px;
-            }
-        }
+        body { font-family: 'Roboto', sans-serif; color: #333; background-color: #f4f4f4; text-align: center; margin: 0; padding: 0; }
+        header { background: linear-gradient(135deg, #0073e6, #0056b3); color: white; padding: 60px 20px; }
+        header h1 { font-size: 3rem; }
+        nav { background-color: #0056b3; padding: 10px; position: sticky; top: 0; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
+        nav a:hover { color: #ffdd00; }
+        section { margin: 30px auto; max-width: 800px; text-align: left; }
+        h2 { color: #0056b3; border-bottom: 2px solid #0073e6; display: inline-block; padding-bottom: 5px; }
+        #game-container { border: 2px solid #0073e6; width: 100%; max-width: 600px; margin: 20px auto; height: 200px; position: relative; background-color: #f7f7f7; overflow: hidden; }
+        .dino { width: 40px; height: 40px; background-color: #0073e6; position: absolute; bottom: 0; left: 20px; }
+        .obstacle { width: 20px; height: 30px; background-color: #0056b3; position: absolute; bottom: 0; right: 0; }
+        #contact-form { display: flex; flex-direction: column; max-width: 500px; margin: auto; }
+        #contact-form input, #contact-form textarea, #contact-form button { margin: 10px 0; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+        #contact-form button { background-color: #0073e6; color: white; border: none; cursor: pointer; }
+
+        /* Loading Screen Styles */
+        #loading-screen { position: fixed; width: 100%; height: 100%; background: white; display: flex; justify-content: center; align-items: center; z-index: 1000; }
+        .loading-dino { width: 50px; height: 50px; background-color: #0073e6; animation: dinoJump 0.5s ease-in-out infinite alternate; }
+        @keyframes dinoJump { 0% { transform: translateY(0); } 100% { transform: translateY(-20px); } }
+        .hidden { display: none; }
     </style>
 </head>
 <body>
+
+    <div id="loading-screen">
+        <div class="loading-dino"></div>
+    </div>
 
     <header>
         <h1>Hardik Sikri</h1>
@@ -123,65 +41,103 @@
     </header>
 
     <nav>
-        <a href="#about">About Me</a>
+        <a href="#about">About</a>
         <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
-        <a href="#education">Education</a>
+        <a href="#game">T-Rex Game</a>
         <a href="#contact">Contact</a>
     </nav>
 
-    <div class="container">
-        <section id="about">
-            <img src="https://via.placeholder.com/150" alt="Profile Picture">
-            <div>
-                <h2>About Me</h2>
-                <p>I am a proactive IT Analyst with strong skills in customer service and technical problem-solving. My experience spans across system architecture and client support, with a focus on continuous learning and adaptability.</p>
-            </div>
-        </section>
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Proactive IT Analyst with a strong background in customer service and system architecture. I am adaptable, eager to learn, and focused on delivering solutions that enhance user experience.</p>
+    </section>
 
-        <section id="experience">
-            <h2>Experience</h2>
-            <ul>
-                <li>
-                    <h3>IT Analyst Intern</h3>
-                    <p><em>Canada Revenue Agency</em> - 2023 to 2024</p>
-                    <p>Troubleshooting and resolving issues while collaborating on various projects and providing training.</p>
-                </li>
-                <li>
-                    <h3>Technical Sales Representative</h3>
-                    <p><em>S&P Data</em> - 2021 to 2023</p>
-                    <p>Assessed customer needs, offered solutions, and maintained strong client relationships.</p>
-                </li>
-            </ul>
-        </section>
+    <section id="experience">
+        <h2>Experience</h2>
+        <ul>
+            <li><strong>IT Analyst Intern</strong> at Canada Revenue Agency (2023-2024)</li>
+            <li><strong>Technical Sales Representative</strong> at S&P Data (2021-2023)</li>
+        </ul>
+    </section>
 
-        <section id="skills">
-            <h2>Skills</h2>
-            <ul>
-                <li>Linux</li>
-                <li>Python</li>
-                <li>VMware</li>
-                <li>System Architecture</li>
-                <li>Communication</li>
-                <li>Teamwork</li>
-            </ul>
-        </section>
+    <section id="skills">
+        <h2>Skills</h2>
+        <p>Linux, Python, VMware, Customer Service, System Architecture</p>
+    </section>
 
-        <section id="education">
-            <h2>Education</h2>
-            <p>Bachelor of Applied Information Systems Technology - Network Management, NAIT</p>
-        </section>
+    <section id="game">
+        <h2>T-Rex Runner Game</h2>
+        <div id="game-container">
+            <div class="dino" id="dino"></div>
+            <div class="obstacle" id="obstacle"></div>
+        </div>
+        <p>Press the "Space" key to jump over obstacles.</p>
+    </section>
 
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Email: <a href="mailto:hsikri1@nait.ca">hsikri1@nait.ca</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/hardiksikri/" target="_blank">LinkedIn Profile</a></p>
-        </section>
-    </div>
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form id="contact-form" action="https://formspree.io/f/{your_form_id}" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
 
-    <footer>
-        <p>© 2024 Hardik Sikri | All Rights Reserved</p>
-    </footer>
+    <script>
+        window.addEventListener('load', () => {
+            document.getElementById('loading-screen').classList.add('hidden');
+        });
 
+        let isJumping = false;
+        const dino = document.getElementById('dino');
+        const obstacle = document.getElementById('obstacle');
+
+        document.addEventListener('keydown', function(event) {
+            if (event.code === 'Space') jump();
+        });
+
+        function jump() {
+            if (isJumping) return;
+            isJumping = true;
+            let upInterval = setInterval(() => {
+                if (dino.style.bottom === '150px') {
+                    clearInterval(upInterval);
+                    let downInterval = setInterval(() => {
+                        if (dino.style.bottom === '0px') {
+                            clearInterval(downInterval);
+                            isJumping = false;
+                        } else {
+                            dino.style.bottom = `${parseInt(dino.style.bottom) - 10}px`;
+                        }
+                    }, 20);
+                } else {
+                    dino.style.bottom = `${parseInt(dino.style.bottom) + 10}px`;
+                }
+            }, 20);
+        }
+
+        function startGame() {
+            dino.style.bottom = '0px';
+            obstacle.style.right = '-60px';
+
+            let moveObstacle = setInterval(() => {
+                if (parseInt(obstacle.style.right) > 580) {
+                    obstacle.style.right = '-60px';
+                } else {
+                    obstacle.style.right = `${parseInt(obstacle.style.right) + 10}px`;
+                }
+                
+                if (parseInt(obstacle.style.right) >= 530 && parseInt(obstacle.style.right) <= 590 && parseInt(dino.style.bottom) === 0) {
+                    clearInterval(moveObstacle);
+                    alert('Game Over! Try again.');
+                    startGame();
+                }
+            }, 50);
+        }
+
+        startGame();
+    </script>
 </body>
 </html>
